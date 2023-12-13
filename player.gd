@@ -8,13 +8,12 @@ func _process(delta):
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
 	if Input.is_action_pressed("move_left"):
-		velocity.x += 1
+		velocity.x -= 1
 	if Input.is_action_pressed("move_up"):
-		velocity.x += 1
+		velocity.y -= 1
 	if Input.is_action_pressed("move_down"):
-		velocity.x += 1
+		velocity.y += 1
 	
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * Speed
-	else:
-		position += velocity * delta
+	position += velocity * delta
